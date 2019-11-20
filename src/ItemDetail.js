@@ -1,19 +1,27 @@
 import React from 'react';
 import './App.css';
 
-function Items() {
-    useEffect(() => {
+function ItemDetail({ match }) {
+    const items = [
+        {
+            itemId: 1,
+            name: 'Ball',
+        },
+        {
+            itemId: 2,
+            name: 'Basket',
+        },
+    ];
 
-    }, []);
+    const item = items.find(element => {
+        return element.itemId == match.params.id
+    })
 
-    const [item, setItem] = useState({});
-
-    const fetchItem = async () => { };
     return (
         <div>
-            <h1>Items Page</h1>
+            <h1>{item.name}</h1>
         </div>
     );
 }
 
-export default Items;
+export default ItemDetail;
